@@ -1,0 +1,21 @@
+CREATE TABLE sales_table (
+    product_id INT,
+    product_name VARCHAR,
+    category VARCHAR,
+    price DECIMAL,
+    review_score DECIMAL,
+    review_count INT,
+    sales_month_1 INT,
+    sales_month_2 INT,
+    sales_month_3 INT,
+    sales_month_4 INT,
+    sales_month_5 INT,
+    sales_month_6 INT,
+    sales_month_7 INT,
+    sales_month_8 INT,
+    sales_month_9 INT,
+    sales_month_10 INT,
+    sales_month_11 INT,
+    sales_month_12 INT,
+    total_sales INT
+);

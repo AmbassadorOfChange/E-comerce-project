@@ -1,0 +1,5 @@
+COPY sales_table 
+FROM 'C:\Users\user\Documents\ecommerce_sales_analysis.csv'
+DELIMITER ',' HEADER;
+
+
