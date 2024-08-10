@@ -101,7 +101,6 @@ Conversely, products with lower sales in certain months, like Product_937 in Jun
 
 ``` SQL QUERY
 -- Query to identify if review_score has a relationship or correlation in top selling product.
-
 SELECT 
     product_name,
     AVG(review_score) AS Average_review_score
@@ -203,3 +202,30 @@ GROUP BY
 ORDER BY review_score DESC
 LIMIT 10;
 ```
+### Here are three insights and trends based on the correlation between review scores and sales:
+
+High Review Scores with Moderate Sales: All the products listed have perfect review scores of 5, yet their total sales vary moderately. This suggests that while a high review score is indicative of excellent product quality, it doesn't necessarily guarantee the highest sales figures. Other factors like marketing, price, and product category may play a significant role in influencing total sales.
+
+Consistent Customer Satisfaction: The uniformity in review scores across these products indicates a consistent level of customer satisfaction. However, the variation in total sales highlights that customer satisfaction alone isn't the sole driver of high sales. It emphasizes the importance of a holistic approach, combining quality with other business strategies to maximize sales.
+
+Opportunity for Growth: Products with high review scores but relatively lower sales (e.g., Product_349 and Product_465) present an opportunity for growth. These products are well-received by customers, and with targeted marketing efforts or strategic pricing, their sales could potentially be increased to match or surpass other high-performing products.
+
+These insights suggest that while review scores are crucial, they need to be complemented with other strategic efforts to fully capitalize on the potential of high-quality products.
+
+
+## QUESTION 5: What is the average order value over the year?
+-- Objective: Calculate the average order value (AOV).
+
+``` QUERY
+SELECT SUM (total_sales) as number_of_order,
+         AVG (total_sales) AS average_order_value
+FROM sales_table;
+```
+
+### Insights based on the average order value over the year:
+
+Significant Average Order Value: The average order value of approximately $6,019.91 indicates that customers are making substantial purchases per order, which could suggest a higher-end product range or successful upselling strategies.
+
+High Volume of Orders: With over 6 million orders processed, the business has achieved a significant scale, suggesting robust demand and a well-established customer base.
+
+Potential for Profitability: The combination of a high average order value and a large number of orders suggests strong revenue potential, positioning the business well for profitability and growth if costs are managed effectively.
