@@ -1,10 +1,12 @@
 ### INTRODUCTION 
-With the desire to provide an optimal strategy and actionable business insights to the e-commerce busines market, also, to solve the challenges and provide opportunity for effective sales performance, this project is tailored to answer the following questions.
+With the desire to provide an optimal strategy and actionable business insights to the ABC e-commerce busines store, also, to provide solve the challenges and provide opportunity for effective sales performance, this project is tailored to answer the following questions.
 1. What are the top-selling products?
 2. What is the monthly sales trend?
 3. Which product categories are the most popular?
 4. How do review scores correlate with sales?
 5. What is the average order value over the year?
+
+DATA SOURCE: Kaggle.
 
 ### BACKGROUND
 
@@ -20,9 +22,9 @@ For deep diving into the E-commerce market, I harnessed several tools such as;
 
 
 ### THE ANALYSIS
-Each query in this analysis is aimed at sharing insights on performance of sales of e-commerce market.
+Each query in this analysis is aimed at sharing insights on performance of sales at ABC e-commerce store.
 Here is how I approached each quesions.
-Question: What are the top-selling products?
+## Question 1: What are the top-selling products?
 Objective: Identify products with the highest sales over the year.
 
 ``` QUERIES
@@ -41,24 +43,24 @@ ORDER BY
     total_sales DESC
 LIMIT 10;
 ```
+# Bar Chart Showing the Top-Selling Product.
 
-## Insights and Trends
+## Insights and Trends On Top-Selling Product.
 Close Competition Among Top Products: The top 10 products have sales figures that are very close, indicating a highly competitive market with no single product dominating.
 
 Diverse Revenue Drivers: Multiple products contribute equally to total sales, reducing dependency on any single item and providing stability in revenue.
 
 Opportunities for Strategic Growth: While the top products perform well, there’s potential for growth through targeted marketing, seasonal promotions, and customer feedback analysis.
 
-Next Steps for Analysis
-It would be insightful to break down the sales figures by month to see if these top-selling products have consistent sales throughout the year or if their success is driven by specific periods (e.g., holiday seasons).
-Analyzing these products' review scores and customer feedback could help understand what makes them top-sellers and how to replicate that success with other products.
+FURTHERMORE ON INSIGHTS AND TRENDS.
 
-### Detailed Steps I Followed
-Break Down Sales by Month:
+It would be insightful to break down the sales figures by month to see if these top-selling products have consistent sales throughout the year or if their success is driven by specific periods (e.g., holiday seasons).
+Also, analyzing these products' review scores and customer feedback could help understand what makes them top-sellers and how to replicate that success with other products.
+
+### Break Down of Sales by Month:
 Purpose: Identify whether the top-selling products have consistent sales throughout the year or if their success is driven by specific periods.
 
-``` SQL Query: Aggregate monthly sales data for each top-selling product
--- Query to breakdown sales by month in order to generate insights and trends.
+``` SQL Query: Aggregate monthly sales data for each top-selling product.
 SELECT 
     product_name,
     SUM(sales_month_1) AS month_1_sales,
@@ -81,8 +83,7 @@ GROUP BY
     product_name;
 ```
 
-### Summary of Monthly Sales Breakdown for Top-Selling Products
-**Based on the monthly sales breakdown for the top-selling products, here are the key observations and insights:**
+**Here are the key observations and insights:**
 
 1. Seasonal and Promotional Peaks
 Several products exhibit significant sales peaks in specific months, suggesting seasonal demand or successful promotional activities. For example:
@@ -96,6 +97,7 @@ In contrast, Product_937 has more volatile sales, with highs in January, March, 
 Products with clear peak periods, such as Product_734 and Product_853, could benefit from intensified marketing and promotions during these times to maximize sales.
 Conversely, products with lower sales in certain months, like Product_937 in June and September, might need targeted strategies to boost sales during these periods.
 
+### Bar Chat Summary of Monthly Sales Breakdown for Top-Selling Product
 
 ### Analysis for review score
 
@@ -112,7 +114,7 @@ GROUP BY
     product_name
 ORDER BY Average_review_score DESC;
 ```
-### Here are three key insights and trends based on the top 10 selling products and their average review scores:
+**Here are the key insights and trends for average review scores**
 
 High Sales with High Reviews: Products like Product_239 and Product_197 have both high sales and top-tier average review scores (4.9). This indicates that high customer satisfaction tends to correlate with high sales, suggesting that these products are both popular and well-received by customers.
 
@@ -142,7 +144,8 @@ FROM
     sales_table;
 ```
 
-### Insights and Trends From Analysis.
+### Insights and Trends From Analysis; Monthly Sales Trends.
+
 1. Overall Stability
 The monthly sales are relatively stable throughout the year, fluctuating within a narrow range. The lowest sales occur in May (487,194), while the highest are in October (514,798).
 2. Peak Sales
@@ -176,7 +179,7 @@ ORDER BY
     total_sales DESC;
 ```
 
-### Insights and Trends.
+### Insights and Trends On The Most Popular Product Category.
 1. Books Lead the Market
 The Books category is the most popular, with total sales of 938,229. This suggests a strong consumer preference for books, possibly driven by consistent demand across different genres or specific popular releases.
 2. Close Competition Among Top Categories
@@ -184,9 +187,10 @@ Toys and Sports categories are close competitors, with total sales of 917,101 an
 3. Electronics and Health Show Significant Demand
 Electronics and Health are also popular categories, with sales of 845,120 and 834,414 respectively. The demand for electronics could be driven by ongoing technological advancements, while health-related products likely reflect a growing consumer focus on wellness.
 
+# IMAGE OR TABLE
 
 ## QUESTION 4: -- Question: How do review scores correlate with sales?
--- Objective: Explore the relationship between product review scores and their sales performance.
+Objective: Explore the relationship between product review scores and their sales performance.
 
 ``` QUERY
 SELECT 
@@ -202,7 +206,7 @@ GROUP BY
 ORDER BY review_score DESC
 LIMIT 10;
 ```
-### Here are three insights and trends based on the correlation between review scores and sales:
+### Here Are The Insights And Trends On The Correlation Between Review Scores And Sales.
 
 High Review Scores with Moderate Sales: All the products listed have perfect review scores of 5, yet their total sales vary moderately. This suggests that while a high review score is indicative of excellent product quality, it doesn't necessarily guarantee the highest sales figures. Other factors like marketing, price, and product category may play a significant role in influencing total sales.
 
@@ -212,9 +216,10 @@ Opportunity for Growth: Products with high review scores but relatively lower sa
 
 These insights suggest that while review scores are crucial, they need to be complemented with other strategic efforts to fully capitalize on the potential of high-quality products.
 
+# IMAGE OR TABLE
 
 ## QUESTION 5: What is the average order value over the year?
--- Objective: Calculate the average order value (AOV).
+Objective: Calculate the average order value (AOV).
 
 ``` QUERY
 SELECT SUM (total_sales) as number_of_order,
@@ -222,7 +227,7 @@ SELECT SUM (total_sales) as number_of_order,
 FROM sales_table;
 ```
 
-### Insights based on the average order value over the year:
+### Insights And Trends Of Average Order Value Over The Year.
 
 Significant Average Order Value: The average order value of approximately $6,019.91 indicates that customers are making substantial purchases per order, which could suggest a higher-end product range or successful upselling strategies.
 
