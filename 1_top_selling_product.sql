@@ -2,6 +2,7 @@
 -- Objective: Identify products with the highest sales over the year.
 -- Calculate total order for each product.
 
+-- First query of the original result.
 SELECT 
     product_id, 
     product_name, 
@@ -15,6 +16,53 @@ ORDER BY
     total_sales DESC
 LIMIT 10;  
 
+-- Query to breakdown sales by month in order to generate insights and trends.
+SELECT 
+    product_name,
+    SUM(sales_month_1) AS month_1_sales,
+    SUM(sales_month_2) AS month_2_sales,
+    SUM(sales_month_3) AS month_3_sales,
+    SUM(sales_month_4) AS month_4_sales,
+    SUM(sales_month_5) AS month_5_sales,
+    SUM(sales_month_6) AS month_6_sales,
+    SUM(sales_month_7) AS month_7_sales,
+    SUM(sales_month_8) AS month_8_sales,
+    SUM(sales_month_9) AS month_9_sales,
+    SUM(sales_month_10) AS month_10_sales,
+    SUM(sales_month_11) AS month_11_sales,
+    SUM(sales_month_12) AS month_12_sales
+FROM 
+    sales_table
+WHERE 
+    product_id IN (224, 286, 734, 905, 180, 853, 239, 924, 937, 197)
+GROUP BY 
+    product_name;
+
+
+-- Query to identify if review_score has a relationship or correlation in top selling product.
+
+SELECT 
+    product_name,
+    AVG(review_score) AS Average_review_score
+FROM 
+    sales_table
+WHERE 
+    product_id IN (224, 286, 734, 905, 180, 853, 239, 924, 937, 197)
+GROUP BY 
+    product_name
+ORDER BY Average_review_score DESC;
+
+
+SELECT 
+    product_name,
+    SUM(total_sales) AS grand_profit
+FROM 
+    sales_table
+WHERE 
+    product_id IN (224, 286, 734, 905, 180, 853, 239, 924, 937, 197)
+GROUP BY 
+    product_name
+ORDER BY grand_profit DESC;
 
 [
   {
